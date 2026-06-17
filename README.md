@@ -1,6 +1,6 @@
 # TechOva Solutions — Company Website
 
-A modern, animated marketing website for **TechOva Solutions** — AI-powered software development for enterprises. Showcases services, flagship products (CV Builder Max & Japap), and a contact form.
+A modern, animated marketing website for **TechOva Solutions** — AI-powered software development for enterprises. Live at [techovasolutions.ca](https://techovasolutions.ca). Showcases services, flagship products (CV Builder Max & Japap), and a contact form.
 
 ## Tech Stack
 
@@ -56,9 +56,13 @@ npm run preview
    - `.htaccess`
 
 4. **Configure the contact form:**
-   - Edit `contact.php` and set `$to_email` to your real inbox address
+   - Edit `contact.php` and set `$to_email` to your inbox (default: `hello@techovasolutions.ca`)
 
-5. **Enable SSL** (recommended):
+5. **Point your domain:**
+   - Set DNS for `techovasolutions.ca` to your cPanel hosting
+   - Upload the build to `public_html` for that domain
+
+6. **Enable SSL** (recommended):
    - Use cPanel's **SSL/TLS** or **Let's Encrypt** to enable HTTPS
    - Uncomment the HTTPS redirect lines in `.htaccess`
 
@@ -83,7 +87,7 @@ techovasolutions/
 
 - **Colors & branding:** Edit CSS variables in `src/styles/main.css` (`:root` block)
 - **Content:** Edit `index.html` directly
-- **Contact email:** Update in `index.html`, `public/contact.php`, and footer links
+- **Contact email:** Update in `index.html`, `public/contact.php`, and footer links (`hello@techovasolutions.ca`)
 - **Stats numbers:** Change `data-count` attributes in the hero section
 
 ## Browser Support
