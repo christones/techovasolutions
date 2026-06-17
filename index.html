@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="TechOva Solutions builds AI-powered software for enterprises. Creators of CV Builder Max and Japap — custom development, automation, and intelligent platforms."
+    />
+    <meta name="theme-color" content="#0a0e1a" />
+    <meta property="og:title" content="TechOva Solutions — AI-Powered Software Development" />
+    <meta
+      property="og:description"
+      content="We engineer intelligent software for firms and enterprises. From CV Builder Max to Japap and beyond."
+    />
+    <meta property="og:type" content="website" />
+    <title>TechOva Solutions — AI-Powered Software Development</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/styles/main.css" />
+  </head>
+  <body>
+    <div class="page-loader" aria-hidden="true">
+      <div class="loader-ring"></div>
+      <span class="loader-text">TechOva</span>
+    </div>
+
+    <div class="cursor-glow" aria-hidden="true"></div>
+
+    <header class="header" id="header">
+      <nav class="nav container">
+        <a href="#home" class="nav__logo" aria-label="TechOva Solutions home">
+          <svg class="nav__logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="40" height="40" rx="10" fill="url(#logoGrad)" />
+            <path d="M12 28V12h6.5c3.2 0 5.5 2.1 5.5 5.2 0 2.5-1.4 4.3-3.6 4.9L26 28h-4.2l-4.8-4.8H16v4.8H12zm4-8.2h2.3c1.4 0 2.2-.7 2.2-1.9s-.8-1.9-2.2-1.9H16v3.8z" fill="#fff" />
+            <defs>
+              <linearGradient id="logoGrad" x1="0" y1="0" x2="40" y2="40">
+                <stop stop-color="#6366f1" />
+                <stop offset="1" stop-color="#06b6d4" />
+              </linearGradient>
+            </defs>
+          </svg>
+          <span>TechOva<span class="nav__logo-accent">Solutions</span></span>
+        </a>
+
+        <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul class="nav__menu" id="navMenu">
+          <li><a href="#home" class="nav__link">Home</a></li>
+          <li><a href="#about" class="nav__link">About</a></li>
+          <li><a href="#services" class="nav__link">Services</a></li>
+          <li><a href="#products" class="nav__link">Products</a></li>
+          <li><a href="#process" class="nav__link">Process</a></li>
+          <li><a href="#contact" class="nav__link nav__link--cta">Get Started</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="hero" id="home">
+        <div class="hero__bg">
+          <div class="hero__grid"></div>
+          <div class="hero__orb hero__orb--1"></div>
+          <div class="hero__orb hero__orb--2"></div>
+          <div class="hero__orb hero__orb--3"></div>
+          <canvas id="particleCanvas" aria-hidden="true"></canvas>
+        </div>
+
+        <div class="container hero__content">
+          <div class="hero__badge reveal" data-delay="0">
+            <span class="hero__badge-dot"></span>
+            AI-Powered Software Studio
+          </div>
+
+          <h1 class="hero__title reveal" data-delay="100">
+            We build <span class="gradient-text">intelligent software</span> that scales with your enterprise
+          </h1>
+
+          <p class="hero__subtitle reveal" data-delay="200">
+            TechOva Solutions engineers AI-driven platforms for firms and enterprises — from concept to production.
+            Trusted builders of <strong>CV Builder Max</strong> and <strong>Japap</strong>.
+          </p>
+
+          <div class="hero__actions reveal" data-delay="300">
+            <a href="#contact" class="btn btn--primary">
+              Start Your Project
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#products" class="btn btn--ghost">Explore Our Work</a>
+          </div>
+
+          <div class="hero__stats reveal" data-delay="400">
+            <div class="hero__stat">
+              <span class="hero__stat-value" data-count="50">0</span><span class="hero__stat-suffix">+</span>
+              <span class="hero__stat-label">Projects Delivered</span>
+            </div>
+            <div class="hero__stat-divider"></div>
+            <div class="hero__stat">
+              <span class="hero__stat-value" data-count="2">0</span>
+              <span class="hero__stat-label">Flagship Products</span>
+            </div>
+            <div class="hero__stat-divider"></div>
+            <div class="hero__stat">
+              <span class="hero__stat-value" data-count="99">0</span><span class="hero__stat-suffix">%</span>
+              <span class="hero__stat-label">Client Satisfaction</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__visual reveal" data-delay="500">
+          <div class="hero__dashboard">
+            <div class="hero__dashboard-bar">
+              <span class="hero__dot hero__dot--red"></span>
+              <span class="hero__dot hero__dot--yellow"></span>
+              <span class="hero__dot hero__dot--green"></span>
+              <span class="hero__dashboard-title">AI Development Pipeline</span>
+            </div>
+            <div class="hero__dashboard-body">
+              <div class="hero__code-line"><span class="code-keyword">const</span> <span class="code-var">solution</span> = <span class="code-fn">await</span> <span class="code-fn">techova</span>.<span class="code-method">build</span>({</div>
+              <div class="hero__code-line hero__code-line--indent"><span class="code-prop">ai</span>: <span class="code-str">'enabled'</span>,</div>
+              <div class="hero__code-line hero__code-line--indent"><span class="code-prop">scale</span>: <span class="code-str">'enterprise'</span>,</div>
+              <div class="hero__code-line hero__code-line--indent"><span class="code-prop">delivery</span>: <span class="code-str">'fast'</span></div>
+              <div class="hero__code-line">});</div>
+              <div class="hero__code-line hero__code-line--success">
+                <span class="code-comment">// ✓ Deployed in production</span>
+              </div>
+            </div>
+            <div class="hero__dashboard-metrics">
+              <div class="hero__metric">
+                <div class="hero__metric-bar" style="--w: 92%"></div>
+                <span>Performance</span>
+              </div>
+              <div class="hero__metric">
+                <div class="hero__metric-bar" style="--w: 88%"></div>
+                <span>AI Accuracy</span>
+              </div>
+              <div class="hero__metric">
+                <div class="hero__metric-bar" style="--w: 95%"></div>
+                <span>Uptime</span>
+              </div>
+            </div>
+          </div>
+          <div class="hero__float-card hero__float-card--1">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+            </svg>
+            <div>
+              <strong>Neural Engine</strong>
+              <span>Active</span>
+            </div>
+          </div>
+          <div class="hero__float-card hero__float-card--2">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+            </svg>
+            <div>
+              <strong>99.9%</strong>
+              <span>Uptime SLA</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Trusted By -->
+      <section class="trusted" aria-label="Technologies we work with">
+        <div class="container">
+          <p class="trusted__label reveal">Built with industry-leading technologies</p>
+          <div class="trusted__marquee">
+            <div class="trusted__track">
+              <span class="trusted__item">React</span>
+              <span class="trusted__item">Node.js</span>
+              <span class="trusted__item">Python</span>
+              <span class="trusted__item">Laravel</span>
+              <span class="trusted__item">TensorFlow</span>
+              <span class="trusted__item">OpenAI</span>
+              <span class="trusted__item">AWS</span>
+              <span class="trusted__item">Docker</span>
+              <span class="trusted__item">PostgreSQL</span>
+              <span class="trusted__item">TypeScript</span>
+              <span class="trusted__item">React</span>
+              <span class="trusted__item">Node.js</span>
+              <span class="trusted__item">Python</span>
+              <span class="trusted__item">Laravel</span>
+              <span class="trusted__item">TensorFlow</span>
+              <span class="trusted__item">OpenAI</span>
+              <span class="trusted__item">AWS</span>
+              <span class="trusted__item">Docker</span>
+              <span class="trusted__item">PostgreSQL</span>
+              <span class="trusted__item">TypeScript</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section class="about section" id="about">
+        <div class="container">
+          <div class="section__header reveal">
+            <span class="section__tag">About Us</span>
+            <h2 class="section__title">Engineering the future of <span class="gradient-text">enterprise software</span></h2>
+            <p class="section__desc">
+              TechOva Solutions is a software studio specializing in AI-powered development for businesses of every size.
+              We combine deep engineering expertise with cutting-edge artificial intelligence to deliver products that
+              transform how organizations operate.
+            </p>
+          </div>
+
+          <div class="about__grid">
+            <div class="about__card reveal" data-delay="0">
+              <div class="about__card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <h3>AI-First Development</h3>
+              <p>We integrate machine learning and intelligent automation into every layer of your software stack.</p>
+            </div>
+            <div class="about__card reveal" data-delay="100">
+              <div class="about__card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                </svg>
+              </div>
+              <h3>Enterprise Ready</h3>
+              <p>Scalable architecture, robust security, and compliance-ready solutions built for mission-critical workloads.</p>
+            </div>
+            <div class="about__card reveal" data-delay="200">
+              <div class="about__card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3>Rapid Delivery</h3>
+              <p>Agile sprints and AI-assisted development pipelines that cut time-to-market without sacrificing quality.</p>
+            </div>
+            <div class="about__card reveal" data-delay="300">
+              <div class="about__card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+              <h3>Partnership Model</h3>
+              <p>We work as an extension of your team — transparent communication, shared goals, and long-term support.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services -->
+      <section class="services section" id="services">
+        <div class="container">
+          <div class="section__header section__header--center reveal">
+            <span class="section__tag">Services</span>
+            <h2 class="section__title">What we <span class="gradient-text">deliver</span></h2>
+            <p class="section__desc">
+              End-to-end software development powered by artificial intelligence — tailored for your business goals.
+            </p>
+          </div>
+
+          <div class="services__grid">
+            <article class="service-card reveal" data-delay="0">
+              <div class="service-card__number">01</div>
+              <div class="service-card__content">
+                <h3>Custom Software Development</h3>
+                <p>Full-stack web and mobile applications engineered to your exact specifications, from MVP to enterprise scale.</p>
+                <ul class="service-card__list">
+                  <li>Web &amp; Mobile Apps</li>
+                  <li>API Design &amp; Integration</li>
+                  <li>Cloud Architecture</li>
+                </ul>
+              </div>
+              <div class="service-card__glow"></div>
+            </article>
+
+            <article class="service-card reveal" data-delay="100">
+              <div class="service-card__number">02</div>
+              <div class="service-card__content">
+                <h3>AI &amp; Machine Learning</h3>
+                <p>Intelligent features that give your product a competitive edge — NLP, computer vision, predictive analytics, and more.</p>
+                <ul class="service-card__list">
+                  <li>LLM Integration</li>
+                  <li>Custom ML Models</li>
+                  <li>Process Automation</li>
+                </ul>
+              </div>
+              <div class="service-card__glow"></div>
+            </article>
+
+            <article class="service-card reveal" data-delay="200">
+              <div class="service-card__number">03</div>
+              <div class="service-card__content">
+                <h3>Platform Engineering</h3>
+                <p>Robust, scalable platforms with modern DevOps practices — CI/CD, monitoring, and infrastructure as code.</p>
+                <ul class="service-card__list">
+                  <li>Microservices</li>
+                  <li>DevOps &amp; CI/CD</li>
+                  <li>Performance Optimization</li>
+                </ul>
+              </div>
+              <div class="service-card__glow"></div>
+            </article>
+
+            <article class="service-card reveal" data-delay="300">
+              <div class="service-card__number">04</div>
+              <div class="service-card__content">
+                <h3>Consulting &amp; Strategy</h3>
+                <p>Technology roadmaps, architecture reviews, and digital transformation guidance from seasoned engineers.</p>
+                <ul class="service-card__list">
+                  <li>Tech Audits</li>
+                  <li>AI Strategy</li>
+                  <li>Team Augmentation</li>
+                </ul>
+              </div>
+              <div class="service-card__glow"></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Products -->
+      <section class="products section" id="products">
+        <div class="container">
+          <div class="section__header reveal">
+            <span class="section__tag">Our Products</span>
+            <h2 class="section__title">Platforms we've <span class="gradient-text">built &amp; shipped</span></h2>
+            <p class="section__desc">
+              Real products serving real users — proof of our ability to deliver at scale.
+            </p>
+          </div>
+
+          <div class="products__showcase">
+            <article class="product-card product-card--featured reveal">
+              <div class="product-card__visual product-card__visual--cv">
+                <div class="product-card__mockup">
+                  <div class="product-mockup__header">
+                    <div class="product-mockup__dots">
+                      <span></span><span></span><span></span>
+                    </div>
+                    <span class="product-mockup__url">cvbuildermax.com</span>
+                  </div>
+                  <div class="product-mockup__body product-mockup__body--cv">
+                    <div class="cv-preview">
+                      <div class="cv-preview__sidebar"></div>
+                      <div class="cv-preview__main">
+                        <div class="cv-preview__line cv-preview__line--title"></div>
+                        <div class="cv-preview__line"></div>
+                        <div class="cv-preview__line"></div>
+                        <div class="cv-preview__line cv-preview__line--short"></div>
+                        <div class="cv-preview__section"></div>
+                        <div class="cv-preview__line"></div>
+                        <div class="cv-preview__line cv-preview__line--short"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card__info">
+                <span class="product-card__badge">Flagship Product</span>
+                <h3>CV Builder Max</h3>
+                <p>
+                  A powerful AI-assisted resume and CV builder that helps professionals craft standout applications.
+                  Smart templates, content suggestions, and ATS optimization — all in one intuitive platform.
+                </p>
+                <ul class="product-card__features">
+                  <li>
+                    <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                    AI-powered content suggestions
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                    Professional templates library
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                    ATS-friendly export formats
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                    Real-time preview &amp; editing
+                  </li>
+                </ul>
+                <a href="#contact" class="btn btn--primary btn--sm">Learn More</a>
+              </div>
+            </article>
+
+            <article class="product-card reveal" data-delay="100">
+              <div class="product-card__visual product-card__visual--japap">
+                <div class="product-card__mockup">
+                  <div class="product-mockup__header">
+                    <div class="product-mockup__dots">
+                      <span></span><span></span><span></span>
+                    </div>
+                    <span class="product-mockup__url">japap.app</span>
+                  </div>
+                  <div class="product-mockup__body product-mockup__body--japap">
+                    <div class="japap-preview">
+                      <div class="japap-preview__nav"></div>
+                      <div class="japap-preview__hero-block"></div>
+                      <div class="japap-preview__cards">
+                        <div class="japap-preview__card"></div>
+                        <div class="japap-preview__card"></div>
+                        <div class="japap-preview__card"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card__info">
+                <span class="product-card__badge product-card__badge--alt">Platform</span>
+                <h3>Japap</h3>
+                <p>
+                  A full-featured platform built for modern digital experiences. Japap showcases our ability to
+                  architect complex, user-centric applications with seamless performance and elegant design.
+                </p>
+                <ul class="product-card__features">
+                  <li>
+                    <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                    Scalable cloud architecture
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                    Modern responsive UI/UX
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                    Real-time data processing
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                    Enterprise-grade security
+                  </li>
+                </ul>
+                <a href="#contact" class="btn btn--ghost btn--sm">Learn More</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Process -->
+      <section class="process section" id="process">
+        <div class="container">
+          <div class="section__header section__header--center reveal">
+            <span class="section__tag">How We Work</span>
+            <h2 class="section__title">From idea to <span class="gradient-text">production</span></h2>
+            <p class="section__desc">A proven process that delivers results — fast, transparent, and collaborative.</p>
+          </div>
+
+          <div class="process__timeline">
+            <div class="process__step reveal" data-delay="0">
+              <div class="process__step-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                </svg>
+              </div>
+              <h3>Discovery</h3>
+              <p>We learn your business, goals, and technical requirements through deep collaborative sessions.</p>
+            </div>
+            <div class="process__connector" aria-hidden="true"></div>
+            <div class="process__step reveal" data-delay="100">
+              <div class="process__step-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                </svg>
+              </div>
+              <h3>Design &amp; Plan</h3>
+              <p>Architecture blueprints, UI/UX prototypes, and a clear roadmap with milestones and deliverables.</p>
+            </div>
+            <div class="process__connector" aria-hidden="true"></div>
+            <div class="process__step reveal" data-delay="200">
+              <div class="process__step-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                </svg>
+              </div>
+              <h3>AI-Powered Build</h3>
+              <p>Agile development sprints accelerated by AI tooling — continuous integration and rapid iteration.</p>
+            </div>
+            <div class="process__connector" aria-hidden="true"></div>
+            <div class="process__step reveal" data-delay="300">
+              <div class="process__step-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                </svg>
+              </div>
+              <h3>Launch &amp; Scale</h3>
+              <p>Production deployment, monitoring, and ongoing support to ensure your platform grows with demand.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Banner -->
+      <section class="cta-banner">
+        <div class="container">
+          <div class="cta-banner__inner reveal">
+            <div class="cta-banner__content">
+              <h2>Ready to build something extraordinary?</h2>
+              <p>Let's discuss how AI-powered software can transform your business.</p>
+            </div>
+            <a href="#contact" class="btn btn--white">
+              Book a Free Consultation
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section class="contact section" id="contact">
+        <div class="container">
+          <div class="contact__grid">
+            <div class="contact__info reveal">
+              <span class="section__tag">Contact</span>
+              <h2 class="section__title">Let's start your <span class="gradient-text">next project</span></h2>
+              <p class="section__desc">
+                Tell us about your vision. We'll get back to you within 24 hours with a tailored plan.
+              </p>
+
+              <div class="contact__details">
+                <a href="mailto:hello@techovasolutions.com" class="contact__detail">
+                  <div class="contact__detail-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                      <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <strong>Email</strong>
+                    <span>hello@techovasolutions.com</span>
+                  </div>
+                </a>
+                <div class="contact__detail">
+                  <div class="contact__detail-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                      <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <strong>Response Time</strong>
+                    <span>Within 24 hours</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <form class="contact__form reveal" data-delay="100" id="contactForm" action="contact.php" method="POST">
+              <div class="form__group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="John Doe" required autocomplete="name" />
+              </div>
+              <div class="form__group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="john@company.com" required autocomplete="email" />
+              </div>
+              <div class="form__group">
+                <label for="company">Company</label>
+                <input type="text" id="company" name="company" placeholder="Your Company Ltd." autocomplete="organization" />
+              </div>
+              <div class="form__group">
+                <label for="service">Service Interested In</label>
+                <select id="service" name="service" required>
+                  <option value="" disabled selected>Select a service</option>
+                  <option value="custom-dev">Custom Software Development</option>
+                  <option value="ai-ml">AI &amp; Machine Learning</option>
+                  <option value="platform">Platform Engineering</option>
+                  <option value="consulting">Consulting &amp; Strategy</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form__group form__group--full">
+                <label for="message">Project Details</label>
+                <textarea id="message" name="message" rows="4" placeholder="Tell us about your project, timeline, and goals..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--full">
+                Send Message
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+                </svg>
+              </button>
+              <p class="form__note" id="formNote" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__grid">
+          <div class="footer__brand">
+            <a href="#home" class="nav__logo">
+              <svg class="nav__logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect width="40" height="40" rx="10" fill="url(#logoGrad2)" />
+                <path d="M12 28V12h6.5c3.2 0 5.5 2.1 5.5 5.2 0 2.5-1.4 4.3-3.6 4.9L26 28h-4.2l-4.8-4.8H16v4.8H12zm4-8.2h2.3c1.4 0 2.2-.7 2.2-1.9s-.8-1.9-2.2-1.9H16v3.8z" fill="#fff" />
+                <defs>
+                  <linearGradient id="logoGrad2" x1="0" y1="0" x2="40" y2="40">
+                    <stop stop-color="#6366f1" />
+                    <stop offset="1" stop-color="#06b6d4" />
+                  </linearGradient>
+                </defs>
+              </svg>
+              <span>TechOva<span class="nav__logo-accent">Solutions</span></span>
+            </a>
+            <p>AI-powered software development for enterprises that demand excellence.</p>
+          </div>
+
+          <div class="footer__links">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#about">About</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#products">Products</a></li>
+              <li><a href="#process">Process</a></li>
+            </ul>
+          </div>
+
+          <div class="footer__links">
+            <h4>Products</h4>
+            <ul>
+              <li><a href="#products">CV Builder Max</a></li>
+              <li><a href="#products">Japap</a></li>
+            </ul>
+          </div>
+
+          <div class="footer__links">
+            <h4>Connect</h4>
+            <ul>
+              <li><a href="mailto:hello@techovasolutions.com">Email Us</a></li>
+              <li><a href="#contact">Get Started</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer__bottom">
+          <p>&copy; <span id="year"></span> TechOva Solutions. All rights reserved.</p>
+          <p class="footer__tagline">Built with intelligence. Delivered with precision.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
