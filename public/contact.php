@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-$to_email = 'hello@techovasolutions.com';
+$to_email = 'hello@techovasolutions.ca';
 
 $name    = trim(filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS) ?? '');
 $email   = trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL) ?? '');
@@ -33,7 +33,7 @@ $body   .= "Company: " . ($company ?: 'N/A') . "\n";
 $body   .= "Service: " . ($service ?: 'N/A') . "\n\n";
 $body   .= "Message:\n{$message}\n";
 
-$headers  = "From: TechOva Solutions <noreply@" . ($_SERVER['HTTP_HOST'] ?? 'techovasolutions.com') . ">\r\n";
+$headers  = "From: TechOva Solutions <noreply@" . ($_SERVER['HTTP_HOST'] ?? 'techovasolutions.ca') . ">\r\n";
 $headers .= "Reply-To: {$name} <{$email}>\r\n";
 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 

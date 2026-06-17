@@ -289,7 +289,7 @@ if (contactForm) {
         formNote.classList.add('error');
       }
     } catch {
-      formNote.textContent = 'Unable to send. Please email us at hello@techovasolutions.com';
+      formNote.textContent = 'Unable to send. Please email us at hello@techovasolutions.ca';
       formNote.classList.add('error');
     } finally {
       submitBtn.disabled = false;
