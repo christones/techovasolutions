@@ -601,15 +601,31 @@
                 <input type="text" id="company" name="company" placeholder="Your Company Ltd." autocomplete="organization" />
               </div>
               <div class="form__group">
-                <label for="service">Service Interested In</label>
-                <select id="service" name="service" required>
-                  <option value="" disabled selected>Select a service</option>
-                  <option value="custom-dev">Custom Software Development</option>
-                  <option value="ai-ml">AI &amp; Machine Learning</option>
-                  <option value="platform">Platform Engineering</option>
-                  <option value="consulting">Consulting &amp; Strategy</option>
-                  <option value="other">Other</option>
-                </select>
+                <label for="service" id="serviceLabel">Service Interested In</label>
+                <div class="custom-select" data-custom-select>
+                  <select id="service" name="service" required class="custom-select__native" tabindex="-1" aria-hidden="true">
+                    <option value="" disabled selected>Select a service</option>
+                    <option value="custom-dev">Custom Software Development</option>
+                    <option value="ai-ml">AI &amp; Machine Learning</option>
+                    <option value="platform">Platform Engineering</option>
+                    <option value="consulting">Consulting &amp; Strategy</option>
+                    <option value="other">Other</option>
+                  </select>
+                  <button
+                    type="button"
+                    class="custom-select__trigger"
+                    id="serviceTrigger"
+                    aria-haspopup="listbox"
+                    aria-expanded="false"
+                    aria-labelledby="serviceLabel serviceValue"
+                  >
+                    <span class="custom-select__value" id="serviceValue">Select a service</span>
+                    <svg class="custom-select__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+                  </button>
+                  <ul class="custom-select__menu" role="listbox" id="serviceListbox" hidden></ul>
+                </div>
               </div>
               <div class="form__group form__group--full">
                 <label for="message">Project Details</label>
