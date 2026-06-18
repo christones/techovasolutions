@@ -255,6 +255,132 @@ function highlightNav() {
 
 window.addEventListener('scroll', highlightNav, { passive: true });
 
+// ── Custom Select ────────────────────────────────────────────
+function initCustomSelect(wrapper) {
+  const select = wrapper.querySelector('select');
+  const trigger = wrapper.querySelector('.custom-select__trigger');
+  const valueEl = wrapper.querySelector('.custom-select__value');
+  const menu = wrapper.querySelector('.custom-select__menu');
+  if (!select || !trigger || !valueEl || !menu) return;
+
+  let activeIndex = -1;
+  const options = [];
+
+  Array.from(select.options).forEach((opt) => {
+    if (!opt.value) return;
+
+    const item = document.createElement('li');
+    item.setAttribute('role', 'option');
+    item.dataset.value = opt.value;
+
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'custom-select__option';
+    btn.textContent = opt.textContent;
+    btn.addEventListener('click', () => chooseOption(opt.value));
+
+    item.appendChild(btn);
+    menu.appendChild(item);
+    options.push({ opt, btn, item });
+  });
+
+  function setPlaceholderState() {
+    const isPlaceholder = !select.value;
+    valueEl.classList.toggle('is-placeholder', isPlaceholder);
+    valueEl.textContent = isPlaceholder
+      ? select.querySelector('option[value=""]')?.textContent || 'Select a service'
+      : select.options[select.selectedIndex]?.textContent || '';
+  }
+
+  function updateSelectedState() {
+    options.forEach(({ opt, btn }) => {
+      btn.classList.toggle('is-selected', opt.value === select.value);
+    });
+  }
+
+  function chooseOption(value) {
+    select.value = value;
+    setPlaceholderState();
+    updateSelectedState();
+    closeMenu();
+    select.dispatchEvent(new Event('change', { bubbles: true }));
+  }
+
+  function openMenu() {
+    wrapper.classList.add('is-open');
+    trigger.setAttribute('aria-expanded', 'true');
+    menu.hidden = false;
+    activeIndex = Math.max(
+      0,
+      options.findIndex(({ opt }) => opt.value === select.value)
+    );
+    highlightActive();
+  }
+
+  function closeMenu() {
+    wrapper.classList.remove('is-open');
+    trigger.setAttribute('aria-expanded', 'false');
+    menu.hidden = true;
+    activeIndex = -1;
+    options.forEach(({ btn }) => btn.classList.remove('is-active'));
+  }
+
+  function highlightActive() {
+    options.forEach(({ btn }, index) => {
+      btn.classList.toggle('is-active', index === activeIndex);
+    });
+    options[activeIndex]?.btn.focus();
+  }
+
+  trigger.addEventListener('click', () => {
+    if (menu.hidden) openMenu();
+    else closeMenu();
+  });
+
+  trigger.addEventListener('keydown', (e) => {
+    if (['ArrowDown', 'ArrowUp', 'Enter', ' '].includes(e.key)) {
+      e.preventDefault();
+      if (menu.hidden) openMenu();
+    }
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  menu.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      activeIndex = Math.min(activeIndex + 1, options.length - 1);
+      highlightActive();
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      activeIndex = Math.max(activeIndex - 1, 0);
+      highlightActive();
+    } else if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      if (options[activeIndex]) chooseOption(options[activeIndex].opt.value);
+    } else if (e.key === 'Escape') {
+      closeMenu();
+      trigger.focus();
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!wrapper.contains(e.target)) closeMenu();
+  });
+
+  select.form?.addEventListener('reset', () => {
+    setTimeout(() => {
+      setPlaceholderState();
+      updateSelectedState();
+      closeMenu();
+    });
+  });
+
+  setPlaceholderState();
+  updateSelectedState();
+}
+
+document.querySelectorAll('[data-custom-select]').forEach(initCustomSelect);
+
 // ── Contact Form ─────────────────────────────────────────────
 const contactForm = document.getElementById('contactForm');
 const formNote = document.getElementById('formNote');
