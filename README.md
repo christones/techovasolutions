@@ -50,10 +50,12 @@ npm run preview
 
 3. **Verify these files are in `public_html`:**
    - `index.html`
+   - `index.php` (HTTPS redirect fallback for cPanel)
    - `assets/` folder (CSS & JS)
-   - `favicon.svg`
+   - `favicon.svg`, `favicon-16.png`, `favicon-32.png`, `apple-touch-icon.png`
+   - `logo-mark.svg`
    - `contact.php`
-   - `.htaccess`
+   - `.htaccess` (enable **Show Hidden Files** in File Manager)
 
 4. **Configure the contact form:**
    - Edit `contact.php` and set `$to_email` to your inbox (default: `hello@techovasolutions.ca`)
@@ -62,9 +64,10 @@ npm run preview
    - Set DNS for `techovasolutions.ca` to your cPanel hosting
    - Upload the build to `public_html` for that domain
 
-6. **Enable SSL** (recommended):
-   - Use cPanel's **SSL/TLS** or **Let's Encrypt** to enable HTTPS
-   - Uncomment the HTTPS redirect lines in `.htaccess`
+6. **Enable SSL** (required for HTTPS redirect):
+   - cPanel → **SSL/TLS Status** → run **AutoSSL** for `techovasolutions.ca`
+   - Or cPanel → **Domains** → your domain → turn on **Force HTTPS Redirect**
+   - Re-upload `dist/.htaccess` and `dist/index.php` after enabling SSL
 
 ## Project Structure
 
